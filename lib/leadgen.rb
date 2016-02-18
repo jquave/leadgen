@@ -2,6 +2,8 @@ require 'open-uri'
 require 'JSON'
 require 'base64'
 
+require 'lib/base'
+
 class Leadgen < Thor
   package_name "Leadgen"
   map "-L" => :list
@@ -25,32 +27,6 @@ class Leadgen < Thor
     uri = "https://www.kickstarter.com/projects/search.json?search=&term="
     jsonStr = lg.getJSONTextFromURI(uri)
     lg.cache(uri, jsonStr)
-  end
-
-  def cacheDir
-    "./cache"
-  end
-
-  def cacheFilename(url)
-    Base64.encode64 url
-  end
-
-  def cachePath(url)
-    "#{cacheDir}/#{cacheFilename(url)}"
-  end
-
-  def cache(uri, str)
-    File.write(cachePath(url), str)
-  end
-
-  def getJSONTextFromURI(uri)
-    # Load the JSON from the specified URL
-    if File.exists? cachePath(url)
-      # Return the cached copy
-      
-    else
-      open("https://www.kickstarter.com/projects/search.json?search=&term=")
-    end
   end
 
 end
