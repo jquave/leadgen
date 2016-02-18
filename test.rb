@@ -5,4 +5,6 @@ require './lib/leadgen.rb'
 
 puts "Leadgen: #{Leadgen.version}"
 
-puts "Kickstarter: #{Leadgen.kickstarter}"
+puts "Loading Kickstarter..."
+
+Leadgen.kickstarter
