@@ -8,8 +8,8 @@ class Kickstarter
     puts "First project: #{@projects[0]}"
   end
 
-  def csv_headers
-    ["title", "raised", "state"]
+  def self.csv_headers
+    ["Title", "Pledged", "Goal", "State", "Location", "Backers", "Funded?"]
   end
 
   def csv
@@ -19,7 +19,11 @@ class Kickstarter
       cs = p["currency_symbol"]
       if cs == "$"
         pledged = p["usd_pledged"]
-        [p["name"], "#{cs}#{pledged}", p["state"]].to_csv
+        goal = p["goal"]
+        location = p["location"]["short_name"]
+        backers = p["backers_count"]
+        funded = pledged.to_f > goal.to_f
+        [p["name"], "#{cs}#{pledged}", goal, p["state"], location, backers, funded].to_csv
       else
         nil
       end

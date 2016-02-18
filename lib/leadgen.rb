@@ -31,7 +31,8 @@ class Leadgen < Thor
   def self.kickstarter
     core = LeadgenCore.new
 
-    csv_data = ["title", "raised", "state"].to_csv
+    #csv_data = ["title", "raised", "state"].to_csv
+    csv_data = Kickstarter.csv_headers.to_csv
 
     # Get first n pages of Kickstarter search results. 20 results per page
     n = 10
