@@ -34,7 +34,7 @@ class Leadgen < Thor
     csv_data = ["title", "raised", "state"].to_csv
 
     # Get first n pages of Kickstarter search results. 20 results per page
-    n = 2
+    n = 10
     (1..n).each do |page_num|
       uri = "https://www.kickstarter.com/projects/search.json?search=&page=#{page_num}&term="
   
