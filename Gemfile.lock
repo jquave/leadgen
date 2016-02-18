@@ -1,0 +1,20 @@
+PATH
+  remote: .
+  specs:
+    leadgen (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    thor (0.19.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.0)
+  leadgen!
+  thor
+
+BUNDLED WITH
+   1.11.2
